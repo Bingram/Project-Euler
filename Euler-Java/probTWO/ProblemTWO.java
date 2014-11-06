@@ -12,22 +12,30 @@ public class ProblemTWO {
 	
 	private static int answer(){
 		
-		int temp = 2;
+		int temp = 0;
+		int result = 2;
 		
-		int prev = 2;
-		int cur;
+		int prev = 1;
+		int cur = 2;
 		System.out.println("Even Primes:");
-		for(int i = 3; i < MAX; i+=prev){
-			
-			prev = i;
-			
-			System.out.println(" " + i);
-			if(i%2==0){ temp += i;}
+		
+		
+		while(cur <= MAX){
+			temp += (cur + prev);
+			prev = cur;
+			cur = temp;
+			System.out.println(" " + temp);
+			if(temp%2==0){ 
+				System.out.println("Current Result " + result);
+				result += temp;
+				}
+			temp = 0;
 		}
 		
-		System.out.println("\nSum of EVEN Primes: " + temp);
 		
-		return temp;
+		System.out.println("\nSum of EVEN Primes: " + result);
+		
+		return result;
 		
 	}
 
